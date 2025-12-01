@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFI Simulator | Green Power Free-Market Index</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+    <div id="app" class="max-w-7xl mx-auto p-4 md:p-8">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-6 pb-4 border-b">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800" data-lang="en:Green Power Free-Market Index (GFI) Simulator|cn:綠電自由化程度指標 (GFI) 模擬器">Green Power Free-Market Index (GFI) Simulator</h1>
+                <p class="mt-1 text-gray-600" data-lang="en:Adjust policies or select a country to see the impact on market liberalization.|cn:調整政策或選擇國家，觀察其對市場自由化的影響。">Adjust policies or select a country to see the impact on market liberalization.</p>
+            </div>
+            <button id="lang-switcher" class="bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-700 transition">切換中文</button>
+        </header>
+
+        <!-- Usage Guide -->
+        <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-6 rounded-lg">
+            <h2 class="font-bold" data-lang="en:How to Use|cn:如何使用">How to Use</h2>
+            <p data-lang="en:Use the sliders (0-10) to set policy levels, or select a country and year from the presets below to get started.|cn:使用滑桿 (0-10) 設定政策程度，或從下方的預設集中選擇國家和年份開始。">Use the sliders (0-10) to set policy levels, or select a country and year from the presets below to get started.</p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Policy Controls -->
+            <div id="policy-controls-wrapper" class="w-full lg:w-3/5 space-y-6">
+                <!-- Presets Section -->
+                <div class="bg-white p-5 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-800" data-lang="en:Country & Year Presets|cn:國家與年份預設集">Country & Year Presets</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700" data-lang="en:Compare Countries|cn:比較國家">Compare Countries</label>
+                            <div id="country-checkboxes" class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2">
+                                <!-- Country checkboxes will be populated by JS -->
+                            </div>
+                        </div>
+                        <div>
+                            <label for="year-select" class="block text-sm font-medium text-gray-700" data-lang="en:Year|cn:年份">Year</label>
+                            <select id="year-select" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"></select>
+                        </div>
+                    </div>
+                     <div id="preset-notes" class="mt-4 text-sm text-gray-600 bg-gray-50 p-3 rounded-md min-h-[40px]"></div>
+                </div>
+
+                <div id="preset-display-header" class="bg-white p-5 rounded-xl shadow-md hidden">
+                    <h3 class="text-xl font-bold text-indigo-800" data-lang="en:Sliders Reflecting|cn:當前滑桿顯示">Sliders Reflecting</h3>
+                    <p id="preset-display-text" class="mt-1 text-lg text-gray-700 font-semibold"></p>
+                </div>
+
+                <!-- Policy Sliders -->
+                <div id="policy-controls">
+                    <!-- Policy categories will be injected here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="results-sidebar" class="w-full lg:w-2/5 lg:sticky top-8 self-start">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-center mb-4" data-lang="en:Simulation Results|cn:模擬結果">Simulation Results</h2>
+                    
+                    <!-- Overall Score -->
+                    <div class="text-center my-4">
+                        <p class="text-lg text-gray-600" data-lang="en:Overall GFI Score|cn:總體 GFI 分數">Overall GFI Score</p>
+                        <p id="overall-score" class="text-7xl font-bold text-indigo-600">0.0</p>
+                    </div>
+
+                    <!-- Dimensional Radar Chart -->
+                    <div class="relative h-60 md:h-72">
+                        <canvas id="radar-chart"></canvas>
+                    </div>
+                    <h3 class="text-center font-bold text-sm mt-2 text-gray-700" data-lang="en:Dimensional Scores|cn:維度分數">Dimensional Scores</h3>
+
+
+                    <!-- Country Trend Chart -->
+                    <div class="mt-8">
+                         <h3 class="text-center font-bold text-lg mb-2 text-gray-700" data-lang="en:GFI Trend|cn:GFI 趨勢">GFI Trend</h4>
+                        <div class="relative h-48 md:h-56">
+                            <canvas id="trend-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Disclaimer -->
+                    <p class="text-xs text-center text-gray-500 mt-8" data-lang="en:*Disclaimer: This is a simulation model. All data is non-official.|cn:*免責聲明：此為模擬模型，所有數據均為非官方資料。">*Disclaimer: This is a simulation model. All data is non-official.</p>
+                </div>
+
+                 <!-- Methodology Section -->
+                <div class="mt-8 bg-white p-6 rounded-xl shadow-lg">
+                    <details>
+                        <summary class="flex justify-between items-center font-bold text-lg text-gray-800">
+                            <span data-lang="en:How Scores Are Calculated|cn:分數計算方式">How Scores Are Calculated</span>
+                            <span class="arrow transition-transform duration-200">&#9654;</span>
+                        </summary>
+                        <div class="mt-4 text-gray-700 text-sm space-y-4">
+                            <p data-lang="en:The GFI score is calculated in three steps: indicator normalization, category aggregation, and weighted final score.|cn:GFI 分數的計算分為三步驟：指標標準化、類別加總，以及加權計算最終分數。">The GFI score is calculated in three steps: indicator normalization, category aggregation, and weighted final score.</p>
+                            <div>
+                                <h4 class="font-bold" data-lang="en:1. Indicator Normalization|cn:1. 指標標準化">1. Indicator Normalization</h4>
+                                <p data-lang="en:Each policy slider (s) is normalized to a value (n) from 0 to 1.|cn:每個政策滑桿 (s) 的值都會被標準化為 0 到 1 之間的值 (n)。">Each policy slider (s) is normalized to a value (n) from 0 to 1.</p>
+                                <code class="block bg-gray-100 p-2 rounded-md mt-1 text-xs">n_i = s_i / 10</code>
+                            </div>
+                            <div>
+                                <h4 class="font-bold" data-lang="en:2. Category Score|cn:2. 類別分數">2. Category Score</h4>
+                                <p data-lang="en:Scores for each of the five categories (C) are calculated by averaging the normalized scores of their constituent policies. All policies within a category are weighted equally.|cn:五大類別 (C) 的分數是透過其內部政策的標準化分數平均而得。類別中的所有政策權重相等。">Scores for each of the five categories (C) are calculated by averaging the normalized scores of their constituent policies. All policies within a category are weighted equally.</p>
+                                 <code class="block bg-gray-100 p-2 rounded-md mt-1 text-xs">C_k = (Σ n_i / count(n_i)) * 100</code>
+                            </div>
+                            <div>
+                                <h4 class="font-bold" data-lang="en:3. Overall GFI Score & Weights|cn:3. 總體 GFI 分數與權重">3. Overall GFI Score & Weights</h4>
+                                <p data-lang="en:The final GFI is a weighted average of the five category scores.|cn:最終的 GFI 分數是五個類別分數的加權平均。">The final GFI is a weighted average of the five category scores.</p>
+                                <code class="block bg-gray-100 p-2 rounded-md mt-1 text-xs">GFI = Σ (C_k * W_k)</code>
+                                <table class="min-w-full divide-y divide-gray-200 mt-2 border">
+                                    <thead class="bg-gray-50"><tr>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase" data-lang="en:Category|cn:類別">Category</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase" data-lang="en:Weight|cn:權重">Weight</th>
+                                    </tr></thead>
+                                    <tbody class="bg-white divide-y divide-gray-200" id="weights-table">
+                                        <!-- Weights will be populated by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                             <p class="text-xs italic mt-2" data-lang="en:Note: The dimensional scores in the radar chart use a separate, more complex weighting model where individual policies can affect multiple dimensions (Market Freedom, Mechanism Maturity, Infrastructure).|cn:註：雷達圖中的維度分數使用一個獨立、更複雜的加權模型，其中單一政策可能影響多個維度（市場自由度、機制成熟度、基礎設施）。">Note: The dimensional scores in the radar chart use a separate, more complex weighting model where individual policies can affect multiple dimensions (Market Freedom, Mechanism Maturity, Infrastructure).</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
