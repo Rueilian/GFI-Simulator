@@ -43,12 +43,13 @@
                             <select id="year-select" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"></select>
                         </div>
                     </div>
-                     <div id="preset-notes" class="mt-4 text-sm text-gray-600 bg-gray-50 p-3 rounded-md min-h-[40px]"></div>
+                     
                 </div>
 
                 <div id="preset-display-header" class="bg-white p-5 rounded-xl shadow-md hidden">
                     <h3 class="text-xl font-bold text-indigo-800" data-lang="en:Sliders Reflecting|cn:當前滑桿顯示">Sliders Reflecting</h3>
-                    <p id="preset-display-text" class="mt-1 text-lg text-gray-700 font-semibold"></p>
+                    <p id="preset-display-text" class="mt-1 text-sm text-gray-700 font-semibold"></p>
+                    <div id="preset-notes" class="mt-4 text-sm text-gray-600 bg-gray-50 p-3 rounded-md min-h-[40px]"></div>
                 </div>
 
                 <!-- Policy Sliders -->
@@ -128,5 +129,16 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <div id="references" class="max-w-7xl mx-auto p-4 md:p-8 mt-8 bg-white rounded-xl shadow-lg">
+        <details>
+            <summary class="flex justify-between items-center font-bold text-lg text-gray-800">
+                <span data-lang="en:References|cn:參考文獻">References</span>
+                <span class="arrow transition-transform duration-200">&#9654;</span>
+            </summary>
+            <div id="references-content" class="mt-4 text-gray-700 text-sm space-y-2">
+                <!-- References will be populated by JavaScript -->
+            </div>
+        </details>
+    </div>
 </body>
 </html>
