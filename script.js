@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lang = {
         en: {
             switch: '切換中文',
+            notes_prefix: 'Notes: ',
             cat_A: 'A. Market Structure',
             cat_B: 'B. Pricing & Support',
             cat_C: 'C. Grid & Technical Rules',
@@ -18,6 +19,99 @@ document.addEventListener('DOMContentLoaded', () => {
             P07: 'Grid Connection Transparency', P08: 'Certificate System (REC/GO)', P09: 'Open Data Platform',
             P10: 'Financing Channels', P11: 'Tax Incentives',
             P12: 'Cross-Ministry Coordination', P13: 'Long-Term Energy Targets',
+            
+            // --- Checkbox Labels ---
+            
+            // P01: Retail Market
+            p01_cb1: 'Full Unbundling of Retail from Generation/Transmission',
+            p01_cb2: 'Multiple Competing Licensed Retailers',
+            p01_cb3: 'Transparent & Easy Supplier Switching Process',
+            p01_cb4: 'Diverse Green Products Available (Tariffs, PPAs, etc.)',
+            p01_cb5: 'Consumer Access to Own Energy Data',
+
+            // P02: Cross-Regional
+            p02_cb1: 'Physical Interconnection with Neighbors',
+            p02_cb2: 'Market Coupling (Shared Order Book)',
+            p02_cb3: 'Intraday/Real-time Cross-border Trading',
+            p02_cb4: 'Transparent Congestion Management (ATC/Flow-based)',
+
+            // P03: PPA Freedom
+            p03_cb1: 'Direct Corporate PPA Legal Framework',
+            p03_cb2: 'Sleeved PPA Services Available via Utility',
+            p03_cb3: 'Virtual/Financial PPA (CFD) Allowed',
+            p03_cb4: 'Cross-Border PPA Feasibility',
+            p03_cb5: 'Standardized Contracts & Low Transaction Costs',
+
+            // P04: Wholesale Pricing
+            p04_cb1: 'Real-time/Spot Market (Day-ahead & Intraday) Active',
+            p04_cb2: 'Negative Pricing Allowed (No Floor)',
+            p04_cb3: 'Ancillary Services Market Open to Renewables',
+            p04_cb4: 'Locational/Nodal Pricing (LMP) or Zonal Signals',
+            p04_cb5: 'Capacity Market or Strategic Reserve Mechanisms',
+
+            // P05: Subsidy Tools
+            p05_cb1: 'Legacy Feed-in Tariffs (FIT) Support',
+            p05_cb2: 'Competitive Auctions (CfD/FIP) for Utility Scale',
+            p05_cb3: 'Corporate Tax Credits (ITC/PTC) or Capital Grants',
+            p05_cb4: 'Green Certificate Quotas (RPS) active',
+            p05_cb5: 'Self-consumption / Net-metering Schemes',
+
+            // P06: Carbon Pricing
+            p06_cb1: 'National ETS or Carbon Tax Legislation',
+            p06_cb2: 'Power Sector Fully Covered',
+            p06_cb3: 'Carbon Price > $40/ton (Effective Signal)',
+            p06_cb4: 'Revenue Recycling to Green Projects',
+            p06_cb5: 'Border Carbon Adjustment (CBAM) or Equivalent',
+
+            // P07: Grid Connection
+            p07_cb1: 'Publicly Available Hosting Capacity Maps',
+            p07_cb2: 'Standardized Connection Rules & Timelines',
+            p07_cb3: 'Online Application & Tracking Portal',
+            p07_cb4: 'Priority Dispatch/Access for Renewables',
+            p07_cb5: 'Queue Management Reform (First-ready, first-served)',
+
+            // P08: Certificates
+            p08_cb1: 'National Registry for T-RECs/GOs Established',
+            p08_cb2: 'Unbundled Sales (Separated from Power) Allowed',
+            p08_cb3: 'Compatible with Int\'l Standards (RE100/I-REC)',
+            p08_cb4: 'Hourly Matching (24/7 CFE) Capabilities',
+            p08_cb5: 'Robust Third-party Verification & Double-counting Prevention',
+
+            // P09: Open Data
+            p09_cb1: 'TSO/ISO Provides Public API',
+            p09_cb2: 'Real-time Generation Mix & Carbon Intensity Data',
+            p09_cb3: 'Wholesale Market Price Data Publicly Accessible',
+            p09_cb4: 'Historical Datasets Downloadable',
+            p09_cb5: 'Standardized Data Formats (CIM/XML)',
+
+            // P10: Financing
+            p10_cb1: 'Active Green Bond Market (>1% of total bonds)',
+            p10_cb2: 'Mature Non-recourse Project Finance Banking',
+            p10_cb3: 'Official Green Taxonomy (ESG) Defined',
+            p10_cb4: 'YieldCos / Infrastructure Funds Active',
+            p10_cb5: 'Crowdfunding / Community Energy Legal Framework',
+
+            // P11: Tax Incentives
+            p11_cb1: 'Accelerated Depreciation for RE Assets',
+            p11_cb2: 'Investment Tax Credits (ITC)',
+            p11_cb3: 'Production Tax Credits (PTC)',
+            p11_cb4: 'VAT / Sales Tax Exemptions',
+            p11_cb5: 'Property / Land Tax Reductions',
+
+            // P12: Coordination
+            p12_cb1: 'Centralized Energy/Climate Agency with Mandate',
+            p12_cb2: 'One-stop Shop for Permitting',
+            p12_cb3: 'Regular Inter-ministerial Climate Meetings',
+            p12_cb4: 'Aligned Land-use & Energy Siting Policies',
+            p12_cb5: 'Aligned Industrial Strategy (Supply Chain)',
+
+            // P13: Targets
+            p13_cb1: 'Net Zero Target Codified in Law',
+            p13_cb2: 'Clear Interim Targets (2030/2040)',
+            p13_cb3: 'Technology-specific Targets (Solar/Wind/Storage)',
+            p13_cb4: 'Coal/Fossil Phase-out Date Set',
+            p13_cb5: 'Regular Review & Ratchet Mechanism (NDC)',
+
             countries: {
                 "United States": "United States", "Germany": "Germany", "Taiwan": "Taiwan",
                 "United Kingdom": "United Kingdom", "France": "France", "Japan": "Japan",
@@ -26,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         cn: {
             switch: 'Switch to English',
+            notes_prefix: '備註：',
             cat_A: 'A. 市場結構', cat_B: 'B. 價格與支持機制', cat_C: 'C. 電網與技術規則',
             cat_D: 'D. 金融與投資環境', cat_E: 'E. 政策協調與治理',
             I_Market: '市場自由度', I_Mechanism: '機制成熟度', I_Infra: '基礎設施完備度',
@@ -35,12 +130,193 @@ document.addEventListener('DOMContentLoaded', () => {
             P07: '併網規則透明度', P08: '綠電憑證系統', P09: '開放數據平台',
             P10: '融資管道', P11: '稅務激勵',
             P12: '跨部會協調', P13: '長期能源目標',
+            
+             // P01 Checkbox Labels
+            p01_cb1: '零售與發電/輸電完全解綁',
+            p01_cb2: '存在多個持牌零售商競爭',
+            p01_cb3: '供應商切換過程透明簡易',
+            p01_cb4: '提供多元綠色產品（電價、PPA等）',
+            p01_cb5: '消費者可存取自身能源數據',
+            // P02 Checkbox Labels
+            p02_cb1: '與鄰國/鄰區實體互聯',
+            p02_cb2: '市場耦合 (共享訂單簿)',
+            p02_cb3: '日內/即時跨區交易',
+            p02_cb4: '透明的壅塞管理 (ATC/Flow-based)',
+            // P03 Checkbox Labels
+            p03_cb1: '企業直購電 (Direct PPA) 合法框架',
+            p03_cb2: '公用事業提供轉供 (Sleeved PPA) 服務',
+            p03_cb3: '允許虛擬/金融 PPA (CFD)',
+            p03_cb4: '跨國/跨區 PPA 可行性',
+            p03_cb5: '合約標準化與低交易成本',
+             // P04: Wholesale Pricing
+            p04_cb1: '即時/現貨市場 (日前與日內) 運作中',
+            p04_cb2: '允許負電價 (無價格下限)',
+            p04_cb3: '輔助服務市場對再生能源開放',
+            p04_cb4: '節點定價 (LMP) 或區域定價訊號',
+            p04_cb5: '容量市場或戰略儲備機制',
+
+            // P05: Subsidy Tools
+            p05_cb1: '既有躉購費率 (FIT) 支持',
+            p05_cb2: '公用事業規模競爭性拍賣 (CfD/FIP)',
+            p05_cb3: '企業稅收抵免 (ITC/PTC) 或資本補助',
+            p05_cb4: '綠電憑證配額 (RPS) 機制',
+            p05_cb5: '自發自用 / 淨計量電價 (Net-metering)',
+
+            // P06: Carbon Pricing
+            p06_cb1: '國家級 ETS 或碳稅立法',
+            p06_cb2: '電力部門完全納入',
+            p06_cb3: '碳價 > $40/ton (具引導信號)',
+            p06_cb4: '收入循環用於綠色項目',
+            p06_cb5: '碳邊境調整機制 (CBAM) 或同等機制',
+
+            // P07: Grid Connection
+            p07_cb1: '公開可用的饋線容量地圖',
+            p07_cb2: '標準化的併網規則與時間表',
+            p07_cb3: '線上申請與進度追蹤平台',
+            p07_cb4: '再生能源優先調度/存取權',
+            p07_cb5: '排隊管理改革 (準備就緒者優先)',
+
+            // P08: Certificates
+            p08_cb1: '已建立國家級憑證 (T-RECs/GOs) 註冊中心',
+            p08_cb2: '允許電證分離銷售',
+            p08_cb3: '符合國際標準 (RE100/I-REC)',
+            p08_cb4: '具備每小時匹配 (24/7 CFE) 能力',
+            p08_cb5: '嚴謹的第三方驗證與防止重複計算',
+
+            // P09: Open Data
+            p09_cb1: 'TSO/ISO 提供公共 API',
+            p09_cb2: '即時發電結構與碳排強度數據',
+            p09_cb3: '批發市場價格數據公開',
+            p09_cb4: '歷史數據集可供下載',
+            p09_cb5: '標準化數據格式 (CIM/XML)',
+
+            // P10: Financing
+            p10_cb1: '活躍的綠色債券市場 (>總債券1%)',
+            p10_cb2: '成熟的無追索權專案融資銀行',
+            p10_cb3: '官方綠色分類標準 (ESG Taxonomy) 已定義',
+            p10_cb4: 'YieldCos / 基礎設施基金活躍',
+            p10_cb5: '群眾募資 / 社區能源法律框架',
+
+            // P11: Tax Incentives
+            p11_cb1: '再生能源資產加速折舊',
+            p11_cb2: '投資稅收抵免 (ITC)',
+            p11_cb3: '生產稅收抵免 (PTC)',
+            p11_cb4: '增值稅 / 營業稅減免',
+            p11_cb5: '財產稅 / 土地稅減免',
+
+            // P12: Coordination
+            p12_cb1: '具備授權的中央能源/氣候署',
+            p12_cb2: '單一窗口許可流程 (One-stop shop)',
+            p12_cb3: '定期跨部會氣候會議',
+            p12_cb4: '土地使用與能源選址政策一致',
+            p12_cb5: '產業策略 (供應鏈) 一致',
+
+            // P13: Targets
+            p13_cb1: '淨零目標入法',
+            p13_cb2: '明確的階段性目標 (2030/2040)',
+            p13_cb3: '特定技術目標 (光/風/儲)',
+            p13_cb4: 'Coal/Fossil Phase-out Date Set',
+            p13_cb5: 'Regular Review & Ratchet Mechanism (NDC)',
+
             countries: {
                 "United States": "美國", "Germany": "德國", "Taiwan": "台灣",
                 "United Kingdom": "英國", "France": "法國", "Japan": "日本",
                 "South Korea": "韓國", "Australia": "澳大利亞", "Canada": "加拿大", "Spain": "西班牙"
             }
         }
+    };
+    
+    const policyOptionsMap = {
+        P01: [
+            { id: 'p01_cb1', weight: 3, label_key: 'p01_cb1' },
+            { id: 'p01_cb2', weight: 2, label_key: 'p01_cb2' },
+            { id: 'p01_cb3', weight: 2, label_key: 'p01_cb3' },
+            { id: 'p01_cb4', weight: 2, label_key: 'p01_cb4' },
+            { id: 'p01_cb5', weight: 1, label_key: 'p01_cb5' },
+        ],
+        P02: [
+            { id: 'p02_cb1', weight: 3, label_key: 'p02_cb1' }, // Interconnection
+            { id: 'p02_cb2', weight: 3, label_key: 'p02_cb2' }, // Market Coupling
+            { id: 'p02_cb3', weight: 2, label_key: 'p02_cb3' }, // Intraday
+            { id: 'p02_cb4', weight: 2, label_key: 'p02_cb4' }, // Transparency
+        ],
+        P03: [
+            { id: 'p03_cb1', weight: 3, label_key: 'p03_cb1' }, // Direct PPA
+            { id: 'p03_cb2', weight: 2, label_key: 'p03_cb2' }, // Sleeved
+            { id: 'p03_cb3', weight: 2, label_key: 'p03_cb3' }, // Virtual
+            { id: 'p03_cb4', weight: 2, label_key: 'p03_cb4' }, // Cross-border
+            { id: 'p03_cb5', weight: 1, label_key: 'p03_cb5' }, // Standards
+        ],
+        P04: [
+            { id: 'p04_cb1', weight: 3, label_key: 'p04_cb1' }, // Spot Market
+            { id: 'p04_cb2', weight: 2, label_key: 'p04_cb2' }, // Negative Pricing
+            { id: 'p04_cb3', weight: 2, label_key: 'p04_cb3' }, // Ancillary
+            { id: 'p04_cb4', weight: 2, label_key: 'p04_cb4' }, // LMP/Zonal
+            { id: 'p04_cb5', weight: 1, label_key: 'p04_cb5' }, // Capacity Mkt
+        ],
+        P05: [
+            { id: 'p05_cb1', weight: 2, label_key: 'p05_cb1' }, // FIT
+            { id: 'p05_cb2', weight: 3, label_key: 'p05_cb2' }, // Auctions
+            { id: 'p05_cb3', weight: 2, label_key: 'p05_cb3' }, // Tax Credits
+            { id: 'p05_cb4', weight: 2, label_key: 'p05_cb4' }, // RPS
+            { id: 'p05_cb5', weight: 1, label_key: 'p05_cb5' }, // Self-consumption
+        ],
+        P06: [
+            { id: 'p06_cb1', weight: 3, label_key: 'p06_cb1' }, // ETS/Tax
+            { id: 'p06_cb2', weight: 2, label_key: 'p06_cb2' }, // Coverage
+            { id: 'p06_cb3', weight: 2, label_key: 'p06_cb3' }, // High Price
+            { id: 'p06_cb4', weight: 2, label_key: 'p06_cb4' }, // Revenue Recycle
+            { id: 'p06_cb5', weight: 1, label_key: 'p06_cb5' }, // CBAM
+        ],
+        P07: [
+            { id: 'p07_cb1', weight: 3, label_key: 'p07_cb1' }, // Maps
+            { id: 'p07_cb2', weight: 3, label_key: 'p07_cb2' }, // Standards
+            { id: 'p07_cb3', weight: 2, label_key: 'p07_cb3' }, // Portal
+            { id: 'p07_cb4', weight: 1, label_key: 'p07_cb4' }, // Priority
+            { id: 'p07_cb5', weight: 1, label_key: 'p07_cb5' }, // Queue
+        ],
+        P08: [
+            { id: 'p08_cb1', weight: 3, label_key: 'p08_cb1' }, // Registry
+            { id: 'p08_cb2', weight: 2, label_key: 'p08_cb2' }, // Unbundled
+            { id: 'p08_cb3', weight: 2, label_key: 'p08_cb3' }, // Int'l Std
+            { id: 'p08_cb4', weight: 2, label_key: 'p08_cb4' }, // Hourly
+            { id: 'p08_cb5', weight: 1, label_key: 'p08_cb5' }, // Verification
+        ],
+        P09: [
+            { id: 'p09_cb1', weight: 3, label_key: 'p09_cb1' }, // API
+            { id: 'p09_cb2', weight: 2, label_key: 'p09_cb2' }, // Mix Data
+            { id: 'p09_cb3', weight: 2, label_key: 'p09_cb3' }, // Price Data
+            { id: 'p09_cb4', weight: 2, label_key: 'p09_cb4' }, // Historical
+            { id: 'p09_cb5', weight: 1, label_key: 'p09_cb5' }, // Formats
+        ],
+        P10: [
+            { id: 'p10_cb1', weight: 3, label_key: 'p10_cb1' }, // Green Bonds
+            { id: 'p10_cb2', weight: 3, label_key: 'p10_cb2' }, // Project Finance
+            { id: 'p10_cb3', weight: 2, label_key: 'p10_cb3' }, // Taxonomy
+            { id: 'p10_cb4', weight: 1, label_key: 'p10_cb4' }, // YieldCos
+            { id: 'p10_cb5', weight: 1, label_key: 'p10_cb5' }, // Crowdfunding
+        ],
+        P11: [
+            { id: 'p11_cb1', weight: 3, label_key: 'p11_cb1' }, // Depreciation
+            { id: 'p11_cb2', weight: 3, label_key: 'p11_cb2' }, // ITC
+            { id: 'p11_cb3', weight: 2, label_key: 'p11_cb3' }, // PTC
+            { id: 'p11_cb4', weight: 1, label_key: 'p11_cb4' }, // VAT
+            { id: 'p11_cb5', weight: 1, label_key: 'p11_cb5' }, // Property Tax
+        ],
+        P12: [
+            { id: 'p12_cb1', weight: 3, label_key: 'p12_cb1' }, // Agency
+            { id: 'p12_cb2', weight: 3, label_key: 'p12_cb2' }, // One-stop
+            { id: 'p12_cb3', weight: 2, label_key: 'p12_cb3' }, // Meetings
+            { id: 'p12_cb4', weight: 1, label_key: 'p12_cb4' }, // Land-use
+            { id: 'p12_cb5', weight: 1, label_key: 'p12_cb5' }, // Industry
+        ],
+        P13: [
+            { id: 'p13_cb1', weight: 3, label_key: 'p13_cb1' }, // Net Zero Law
+            { id: 'p13_cb2', weight: 2, label_key: 'p13_cb2' }, // Interim
+            { id: 'p13_cb3', weight: 2, label_key: 'p13_cb3' }, // Tech Targets
+            { id: 'p13_cb4', weight: 2, label_key: 'p13_cb4' }, // Phase-out
+            { id: 'p13_cb5', weight: 1, label_key: 'p13_cb5' }, // Review
+        ],
     };
 
     const policies = [
@@ -53,6 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const categoryWeights = { cat_A: 0.30, cat_B: 0.25, cat_C: 0.15, cat_D: 0.15, cat_E: 0.15 };
 
+    // Weights for the RADAR chart (dimensional scores)
     const indicatorWeights = {
         P01: { I_Market: 0.8, I_Mechanism: 0.2, I_Infra: 0.0 }, P02: { I_Market: 0.7, I_Mechanism: 0.1, I_Infra: 0.2 },
         P03: { I_Market: 0.9, I_Mechanism: 0.1, I_Infra: 0.0 }, P04: { I_Market: 0.4, I_Mechanism: 0.6, I_Infra: 0.0 },
@@ -63,68 +340,161 @@ document.addEventListener('DOMContentLoaded', () => {
         P13: { I_Market: 0.1, I_Mechanism: 0.5, I_Infra: 0.4 },
     };
 
-    const presets = {
+
+    /**
+     * Helper function to greedily generate checkbox states (true/false) based on a target score.
+     * This ensures that when converting numerical scores to checkbox states, higher-weighted
+     * checkboxes are prioritized, mimicking how a user might manually achieve a score.
+     * @param {number} targetScore - The desired numerical score (0-10).
+     * @param {Array<Object>} options - The array of checkbox options for a policy, each with an 'id' and 'weight'.
+     * @returns {Object} An object where keys are checkbox IDs and values are booleans (true/false).
+     */
+    function _generateCheckboxStates(targetScore, options) {
+        const states = {};
+        let currentScore = 0;
+        // Sort options by weight in descending order to prioritize higher weights
+        const sortedOptions = [...options].sort((a, b) => b.weight - a.weight);
+
+        sortedOptions.forEach(opt => {
+            if (currentScore + opt.weight <= targetScore) {
+                states[opt.id] = true;
+                currentScore += opt.weight;
+            } else {
+                states[opt.id] = false;
+            }
+        });
+
+        // If the targetScore isn't perfectly met, try to fill the remaining gap with any available checkbox
+        // This makes the conversion more robust for arbitrary numerical inputs.
+        if (currentScore < targetScore) {
+            const remainingOptions = sortedOptions.filter(opt => !states[opt.id]);
+            for (const opt of remainingOptions) {
+                if (currentScore + opt.weight <= targetScore) { // Only check if it doesn't exceed the target
+                    states[opt.id] = true;
+                    currentScore += opt.weight;
+                }
+            }
+        }
+        
+        // Final adjustment: if currentScore is still less than targetScore, and we have unchecked options, 
+        // check them if they bring us closer without going over 10.
+        if (currentScore < targetScore) {
+             const remainingOptions = sortedOptions.filter(opt => !states[opt.id]);
+             for (const opt of remainingOptions) {
+                if (currentScore < targetScore && currentScore + opt.weight <= 10) { // Check if still below target and won't exceed 10
+                    states[opt.id] = true;
+                    currentScore += opt.weight;
+                }
+            }
+        }
+
+        // Ensure no score exceeds 10 due to rounding/greedy logic
+        const finalScoreFromStates = options.reduce((sum, opt) => sum + (states[opt.id] ? opt.weight : 0), 0);
+        if (finalScoreFromStates > 10) {
+            // If the sum somehow exceeds 10, uncheck from lowest weight until <=10 or no more can be unchecked
+            const reverseSortedOptions = [...options].sort((a, b) => a.weight - b.weight);
+            for (const opt of reverseSortedOptions) {
+                if (states[opt.id] && finalScoreFromStates - opt.weight >= 0) { // Ensure we don't go negative
+                    states[opt.id] = false;
+                    finalScoreFromStates -= opt.weight;
+                    if (finalScoreFromStates <= 10) break;
+                }
+            }
+        }
+
+
+        return states;
+    }
+
+
+    // --- FEATURE 2: PRESET DATA (NUMERICAL SCORES - WILL BE CONVERTED TO CHECKBOX STATES) ---
+    // These are the source numerical scores based on research.
+    // They will be converted to detailed checkbox states using _generateCheckboxStates.
+    const rawPresets = {
         "United States": {
-            2010: {P01:3, P02:5, P03:5, P04:6, P05:5, P06:1, P07:4, P08:6, P09:3, P10:6, P11:8, P12:3, P13:3, notes:"Policy driven by state-level RPS & federal tax credits (ITC/PTC) from ARRA. No national carbon price or long-term targets. Fragmented wholesale markets, but competitive in major regions.", cn_notes:"政策由州級RPS和ARRA的聯邦稅收抵免（ITC/PTC）推動。沒有全國性的碳定價或長期目標。批發市場分散，但在主要地區具有競爭力。"},
-            2015: {P01:4, P02:6, P03:6, P04:6, P05:6, P06:2, P07:5, P08:6, P09:5, P10:7, P11:8, P12:4, P13:5, notes:"Clean Power Plan proposed, spurring market optimism. Multi-year extension of federal tax credits (ITC/PTC) provides key investment certainty. Corporate PPAs continue to gain traction.", cn_notes:"清潔電力計劃提案激發市場樂觀情緒。聯邦稅收抵免（ITC/PTC）的多年延長提供了關鍵的投資確定性。企業PPA持續增長。"},
-            2020: {P01:5, P02:6, P03:8, P04:6, P05:7, P06:2, P07:6, P08:7, P09:6, P10:8, P11:7, P12:4, P13:5, notes:"Energy Act of 2020 drives R&D, while ITC/PTC extensions continue. States like CA & NY push aggressive targets. Corporate procurement is a major force.", cn_notes:"2020年能源法案推動研發，ITC/PTC延長繼續。加州和紐約等州推動積極目標。企業採購成為主要力量。"},
-            2025: {P01:6, P02:7, P03:9, P04:7, P05:8, P06:2, P07:7, P08:8, P09:7, P10:9, P11:9, P12:6, P13:8, notes:"IRA of 2022 provides long-term certainty and massive funding. Focus on domestic supply chains and grid build-out.", cn_notes:"2022年的IRA法案提供了長期確定性和大規模資金。重點關注國內供應鏈和電網建設。"}
+            2010: {P01:3, P02:5, P03:5, P04:6, P05:7, P06:1, P07:4, P08:5, P09:5, P10:5, P11:7, P12:3, P13:2, notes:"RPS state-led. PTC/ITC active. ISOs mature. No fed carbon tax."},
+            2015: {P01:4, P02:6, P03:8, P04:7, P05:7, P06:2, P07:5, P08:6, P09:6, P10:6, P11:8, P12:4, P13:4, notes:"Clean Power Plan era. Corp PPAs take off. EIM grows."},
+            2020: {P01:5, P02:7, P03:9, P04:7, P05:8, P06:2, P07:6, P08:7, P09:7, P10:8, P11:8, P12:5, P13:5, notes:"State targets aggressive. Tax equity mature. Offshore wind nascent."},
+            2025: {P01:6, P02:8, P03:10, P04:8, P05:9, P06:3, P07:7, P08:8, P09:8, P10:10, P11:9, P12:7, P13:7, notes:"IRA dominance. No Fed Carbon Tax (State RGGI only)."}
         },
         "Germany": {
-            2010: {P01:6, P02:7, P03:5, P04:6, P05:6, P06:4, P07:6, P08:6, P09:5, P10:7, P11:5, P12:7, P13:8, notes:"Energiewende and Energy Concept 2010 set ambitious long-term targets. EEG with high feed-in tariffs (FITs) drives strong renewable growth. Nuclear phase-out not yet decided.", cn_notes:"“能源轉型”和2010年能源概念設定了雄心勃勃的長期目標。EEG以高額上網電價（FITs）推動可再生能源強勁增長。尚未決定淘汰核能。"},
-            2015: {P01:6, P02:7, P03:6, P04:7, P05:6, P06:5, P07:7, P08:7, P09:6, P10:7, P11:5, P12:7, P13:9, notes:"Shift from FITs to auctions (EEG 2014 reform) to control costs. Grid stability becomes a key concern. Nuclear phase-out remains on track.", cn_notes:"從FITs轉向拍賣（EEG 2014年改革）以控制成本。電網穩定性成為主要關注點。核能淘汰仍在軌道上。"},
-            2020: {P01:7, P02:8, P03:6, P04:7, P05:5, P06:7, P07:7, P08:8, P09:7, P10:7, P11:5, P12:7, P13:9, notes:"EEG 2021 passed, setting 65% clean electricity by 2030 target. National carbon pricing introduced for transport/heating. Coal phase-out law passed. Corporate PPA market is emerging but not yet mature.", cn_notes:"EEG 2021通過，設定2030年65%清潔電力目標。為交通/供暖引入國家碳定價。煤炭淘汰法通過。企業PPA市場正在興起但尚未成熟。"},
-            2025: {P01:7, P02:8, P03:8, P04:8, P05:5, P06:8, P07:8, P08:8, P09:8, P10:8, P11:6, P12:8, P13:10, notes:"Aggressive expansion targets (80% renewables by 2030, climate neutrality by 2045). Record growth in renewables, but challenges remain in meeting targets. Focus on streamlining permits and grid expansion.", cn_notes:"積極的擴張目標（2030年80%可再生能源，2045年氣候中和）。可再生能源創紀錄增長，但實現目標仍面臨挑戰。重點是簡化許可和電網擴張。"}
+            2010: {P01:6, P02:5, P03:4, P04:6, P05:9, P06:5, P07:6, P08:5, P09:5, P10:7, P11:4, P12:6, P13:7, notes:"EEG FIT boom. ETS active but low price."},
+            2015: {P01:6, P02:8, P03:6, P04:7, P05:7, P06:5, P07:7, P08:6, P09:6, P10:7, P11:4, P12:7, P13:8, notes:"Auction shift. Market coupling NWE. Grid expansion laws."},
+            2020: {P01:7, P02:10, P03:8, P04:8, P05:6, P06:7, P07:7, P08:8, P09:7, P10:8, P11:4, P12:7, P13:9, notes:"Coal exit law. National carbon price (heating/transport)."},
+            2025: {P01:7, P02:10, P03:9, P04:9, P05:6, P06:10, P07:8, P08:9, P09:8, P10:9, P11:5, P12:8, P13:10, notes:"EU ETS > €60 + CBAM. Aggressive 2030 targets."}
         },
         "Taiwan": {
-            2010: {P01:1, P02:1, P03:1, P04:2, P05:3, P06:1, P07:2, P08:2, P09:1, P10:3, P11:2, P12:2, P13:3, notes:"Renewable Energy Development Act (REDA) passed in 2009 establishing FITs. Market remains state-dominated. Targets set, but actual capacity below goals.", cn_notes:"2009年通過《再生能源發展條例》（REDA），建立上網電價（FITs）。市場仍由國營主導。已設定目標，但實際容量低於目標。"},
-            2015: {P01:3, P02:1, P03:2, P04:2, P05:4, P06:1, P07:3, P08:3, P09:2, P10:4, P11:3, P12:3, P13:6, notes:"Initial, slow liberalization efforts continue. Greenhouse Gas Reduction and Management Act ratified, setting long-term targets. Focus remains on solar and wind FITs.", cn_notes:"初步緩慢的自由化努力仍在繼續。《溫室氣體減量及管理法》批准，設定長期目標。重點仍在太陽能和風能的上網電價。"},
-            2020: {P01:4, P02:2, P03:5, P04:3, P05:5, P06:2, P07:4, P08:6, P09:4, P10:6, P11:4, P12:5, P13:7, notes:"Electricity Act amendments enable direct PPAs. T-REC market established. Offshore wind development accelerates. Carbon pricing scheme integrated into climate legislation.", cn_notes:"《電業法》修正案啟用直接PPA。T-REC市場建立。離岸風電發展加速。碳定價方案納入氣候立法。"},
-            2025: {P01:5, P02:3, P03:7, P04:4, P05:6, P06:4, P07:6, P08:7, P09:6, P10:7, P11:5, P12:6, P13:8, notes:"Ambitious renewable energy targets (20% by 2025) face challenges in implementation. Corporate PPAs are common. Carbon pricing/fees introduced. Grid constraints are emerging issues.", cn_notes:"雄心勃勃的可再生能源目標（到2025年佔20%）在實施中面臨挑戰。企業PPA很普遍。引入了碳定價/費用。電網限制是新出現的問題。"}
+            2010: {P01:1, P02:0, P03:0, P04:2, P05:5, P06:0, P07:2, P08:1, P09:1, P10:2, P11:2, P12:2, P13:2, notes:"Monopoly era. FIT introduced 2009."},
+            2015: {P01:2, P02:0, P03:1, P04:2, P05:6, P06:0, P07:3, P08:2, P09:2, P10:3, P11:3, P12:3, P13:4, notes:"Slow liberalization. Solar/Wind targets set."},
+            2020: {P01:4, P02:2, P03:5, P04:3, P05:7, P06:1, P07:4, P08:6, P09:4, P10:6, P11:4, P12:5, P13:7, notes:"2017 Act. Direct PPA legal. T-REC market start."},
+            2025: {P01:5, P02:2, P03:7, P04:4, P05:7, P06:7, P07:6, P08:7, P09:6, P10:8, P11:5, P12:6, P13:9, notes:"Carbon Fee starts 2025 (~$10/t). Net Zero codified."}
         },
         "United Kingdom": {
-            2010: {P01:7, P02:7, P03:6, P04:7, P05:7, P06:5, P07:6, P08:7, P09:6, P10:7, P11:6, P12:6, P13:8, notes:"Bound by EU Renewable Energy Directive (15% by 2020). Renewables Obligation (RO) and Feed-in Tariffs (FiT) launched. Domestic target of 10% electricity from renewables by 2010 was missed.", cn_notes:"受歐盟可再生能源指令（到2020年佔15%）約束。啟動了可再生能源義務（RO）和上網電價（FiT）。未達到2010年國內10%電力來自可再生能源的目標。"},
-            2015: {P01:8, P02:7, P03:7, P04:8, P05:7, P06:6, P07:7, P08:8, P09:7, P10:7, P11:5, P12:7, P13:9, notes:"Bound by EU 2020 targets. Renewables Obligation (RO), Feed-in Tariffs (FiT), Renewable Heat Incentive (RHI), and Contracts for Difference (CfDs) are key mechanisms. Electricity Market Reform (EMR) is implemented.", cn_notes:"受歐盟2020年目標約束。可再生能源義務（RO）、上網電價（FiT）、可再生熱能獎勵（RHI）和差價合約（CfDs）是關鍵機制。實施了電力市場改革（EMR）。"},
-            2020: {P01:8, P02:8, P03:8, P04:8, P05:7, P06:7, P07:8, P08:8, P09:8, P10:8, P11:5, P12:8, P13:9, notes:"UK left EU. Legally binding net-zero target by 2050. Ten Point Plan for Green Industrial Revolution and Energy White Paper launched. CfDs and RHI continue, FiTs phasing out.", cn_notes:"英國脫歐。具有法律約束力的2050年淨零目標。啟動了綠色工業革命十點計劃和能源白皮書。CfDs和RHI繼續，FiTs逐步取消。"},
-            2025: {P01:8, P02:8, P03:9, P04:9, P05:7, P06:8, P07:8, P08:9, P09:9, P10:8, P11:6, P12:8, P13:10, notes:"Ambitious targets (95% clean electricity by 2030, Net-Zero by 2050). Record renewable generation. CfDs are primary support, with new heat schemes. Grid infrastructure upgrades are a key challenge.", cn_notes:"雄心勃勃的目標（到2030年95%清潔電力，到2050年淨零）。可再生能源發電創紀錄。CfDs是主要支持，並有新的熱能計劃。電網基礎設施升級是關鍵挑戰。"}
+            2010: {P01:7, P02:5, P03:6, P04:7, P05:8, P06:4, P07:6, P08:7, P09:6, P10:8, P11:5, P12:6, P13:8, notes:"Climate Change Act 2008. RO scheme."},
+            2015: {P01:8, P02:8, P03:7, P04:8, P05:7, P06:6, P07:7, P08:8, P09:7, P10:8, P11:4, P12:7, P13:9, notes:"CfD introduction. Carbon Price Floor active."},
+            2020: {P01:8, P02:7, P03:8, P04:8, P05:6, P06:7, P07:8, P08:8, P09:8, P10:9, P11:4, P12:8, P13:9, notes:"Net Zero 2050 law. Offshore wind leader. Brexit decoupling."},
+            2025: {P01:8, P02:6, P03:9, P04:9, P05:6, P06:10, P07:8, P08:9, P09:9, P10:9, P11:5, P12:8, P13:10, notes:"Grid reform. Hydrogen/CCS support. High carbon price."}
         },
         "France": {
-            2010: {P01:4, P02:6, P03:4, P04:5, P05:6, P06:4, P07:5, P08:5, P09:4, P10:6, P11:5, P12:6, P13:7, notes:"Bound by EU Renewable Energy Directive (23% by 2020 target). Grenelle laws emphasize climate action and renewables. Biofuels are a significant focus.", cn_notes:"受歐盟可再生能源指令（到2020年23%目標）約束。格蘭納勒法案強調氣候行動和可再生能源。生物燃料是重要焦點。"},
-            2015: {P01:5, P02:7, P03:5, P04:6, P05:7, P06:5, P07:6, P08:6, P09:5, P10:7, P11:5, P12:7, P13:8, notes:"Law on Energy Transition for Green Growth (LTECV) sets ambitious targets: 32% renewables by 2030, 40% GHG reduction by 2030. Reforms support schemes.", cn_notes:"《綠色增長能源轉型法》（LTECV）設定了宏偉目標：到2030年可再生能源佔32%，到2030年溫室氣體減排40%。改革支持計劃。"},
-            2020: {P01:5, P02:7, P03:7, P04:6, P05:6, P06:6, P07:6, P08:7, P09:6, P10:7, P11:6, P12:7, P13:8, notes:"Did not meet 2020 renewable energy target. Energy Transition Law and Energy and Climate Law set ambitious 2030 and 2050 targets. Carbon tax quadrupled.", cn_notes:"未達到2020年可再生能源目標。《能源轉型法》和《能源與氣候法》設定了雄心勃勃的2030年和2050年目標。碳稅增加了四倍。"},
-            2025: {P01:6, P02:7, P03:8, P04:7, P05:7, P06:7, P07:7, P08:8, P09:7, P10:8, P11:7, P12:8, P13:9, notes:"Multiannual Energy Programme (PPE3) sets ambitious capacity targets for solar, wind, hydro, hydrogen, and biogas. Increased budget for energy transition. Carbon neutrality by 2050 target.", cn_notes:"多年能源計劃（PPE3）為太陽能、風能、水能、氫能和生物氣設定了宏偉的容量目標。增加了能源轉型的預算。目標是到2050年實現碳中和。"}
+            2010: {P01:4, P02:5, P03:3, P04:5, P05:7, P06:4, P07:5, P08:5, P09:4, P10:6, P11:4, P12:6, P13:6, notes:"Nuclear dominant. FITs active."},
+            2015: {P01:5, P02:8, P03:4, P04:6, P05:6, P06:5, P07:6, P08:6, P09:5, P10:7, P11:4, P12:7, P13:7, notes:"Energy Transition Law. Carbon tax component."},
+            2020: {P01:5, P02:10, P03:6, P04:7, P05:6, P06:6, P07:7, P08:7, P09:6, P10:8, P11:5, P12:7, P13:8, notes:"PPE (Energy Plan). Green bonds sovereign leader."},
+            2025: {P01:6, P02:10, P03:8, P04:8, P05:5, P06:10, P07:7, P08:8, P09:7, P10:8, P11:5, P12:8, P13:9, notes:"EU ETS High Price. Nuclear revival + RE acceleration."}
         },
-         "Japan": {
-            2010: {P01:2, P02:2, P03:2, P04:3, P05:4, P06:1, P07:3, P08:2, P09:2, P10:4, P11:3, P12:3, P13:4, notes:"Limited Feed-in Tariff (FIT) for surplus solar introduced. Renewable Portfolio Standard (RPS) in place but constrained. New administration expresses intent for more ambitious targets.", cn_notes:"為剩餘太陽能引入有限的上網電價（FIT）。可再生能源配額標準（RPS）已實施但受限。新政府表示有意制定更宏偉的目標。"},
-            2015: {P01:4, P02:3, P03:4, P04:4, P05:8, P06:2, P07:5, P08:4, P09:3, P10:7, P11:4, P12:4, P13:6, notes:"Post-Fukushima energy policy shifts. Strong Feed-in Tariff (FIT) scheme drives significant solar PV growth, but faces grid connection challenges. METI proposes 22-24% renewables by 2030.", cn_notes:"福島後能源政策轉變。強勁的上網電價（FIT）計劃推動太陽能光伏顯著增長，但面臨電網連接挑戰。經濟產業省提議到2030年可再生能源佔比22-24%。"},
-            2020: {P01:6, P02:4, P03:6, P04:5, P05:6, P06:3, P07:5, P08:6, P09:5, P10:7, P11:5, P12:5, P13:7, notes:"Prime Minister Suga declares 2050 net-zero target. Renewable energy share increases. Green Growth Strategy launched. Electricity retail market liberalized.", cn_notes:"菅義偉首相宣布2050年淨零目標。可再生能源份額增加。啟動綠色增長戰略。電力零售市場自由化。"},
-            2025: {P01:7, P02:5, P03:7, P04:6, P05:6, P06:6, P07:6, P08:7, P09:6, P10:7, P11:6, P12:6, P13:8, notes:"7th Strategic Energy Plan (SEP) sets ambitious targets for 2040 and 2050 carbon neutrality. Renewables become mainstream, but growth in FIT/FIP schemes slows. Offshore wind auctions are active.", cn_notes:"第七個戰略能源計劃（SEP）設定了2040年和2050年碳中和的宏偉目標。可再生能源成為主流，但FIT/FIP計劃的增長放緩。海上風電拍賣活躍。"}
+        "Japan": {
+            2010: {P01:2, P02:1, P03:1, P04:3, P05:4, P06:1, P07:3, P08:2, P09:2, P10:4, P11:3, P12:3, P13:4, notes:"Vertical monopoly. Kyoto Protocol."},
+            2015: {P01:4, P02:4, P03:3, P04:4, P05:8, P06:1, P07:4, P08:3, P09:3, P10:5, P11:3, P12:4, P13:5, notes:"FIT boom. OCCTO created. Pre-2016 full retail opening."},
+            2020: {P01:8, P02:6, P03:5, P04:5, P05:6, P06:2, P07:5, P08:5, P09:5, P10:7, P11:4, P12:5, P13:7, notes:"Post-2016 Full Retail Liberalization. 2050 Net Zero Pledge."},
+            2025: {P01:8, P02:7, P03:7, P04:6, P05:5, P06:6, P07:6, P08:7, P09:6, P10:8, P11:5, P12:6, P13:8, notes:"GX League (Voluntary ETS). FIP introduced. Corporate PPAs growing."}
         },
         "South Korea": {
-            2010: {P01:2, P02:2, P03:2, P04:3, P05:5, P06:1, P07:3, P08:3, P09:2, P10:4, P11:4, P12:4, P13:5, notes:"Low Carbon, Green Growth initiative and Green Growth Framework enacted. Feed-in Tariffs (FITs) in place. Targets for grid parity by 2020 and 11% renewables by 2030.", cn_notes:"頒布了低碳綠色增長倡議和綠色增長框架。實施了上網電價（FITs）。目標是到2020年實現電網友好，到2030年可再生能源佔比11%。"},
-            2015: {P01:3, P02:2, P03:3, P04:4, P05:6, P06:4, P07:4, P08:4, P09:3, P10:5, P11:5, P12:5, P13:6, notes:"Nationwide Emissions Trading System (ETS) implemented. Feed-in Tariffs (FITs) terminated and replaced by Renewable Portfolio Standard (RPS). Ambitious investment plans.", cn_notes:"實施了全國性的排放交易體系（ETS）。終止了上網電價（FITs），並由可再生能源配額標準（RPS）取代。雄心勃勃的投資計劃。"},
-            2020: {P01:4, P02:3, P03:5, P04:4, P05:7, P06:5, P07:5, P08:6, P09:5, P10:6, P11:6, P12:6, P13:8, notes:"Green New Deal (GND) launched, setting ambitious 2030 renewable targets. Commitment to carbon neutrality by 2050. Renewable Portfolio Standard (RPS) and K-ETS in place.", cn_notes:"綠色新政（GND）啟動，設定了雄心勃勃的2030年可再生能源目標。承諾到2050年實現碳中和。實施了可再生能源配額標準（RPS）和韓國排放交易體系（K-ETS）。"},
-            2025: {P01:5, P02:4, P03:7, P04:5, P05:6, P06:6, P07:6, P08:7, P09:6, P10:7, P11:6, P12:7, P13:8, notes:"11th Basic Plan for Long-Term Electricity Supply and Demand (BPLE) sets ambitious targets (32.9% renewables by 2038). Carbon Neutrality Act in force. Grid bottlenecks and permitting challenges persist.", cn_notes:"第11個長期電力供需基本計劃（BPLE）設定了宏偉目標（到2038年可再生能源佔32.9%）。《碳中和法》生效。電網瓶頸和許可挑戰仍然存在。"}
+            2010: {P01:2, P02:0, P03:1, P04:3, P05:6, P06:1, P07:3, P08:2, P09:2, P10:4, P11:3, P12:4, P13:5, notes:"Green Growth strategy. RPS replaced FIT."},
+            2015: {P01:3, P02:0, P03:1, P04:4, P05:7, P06:6, P07:4, P08:4, P09:3, P10:5, P11:4, P12:5, P13:6, notes:"ETS launched (first in East Asia)."},
+            2020: {P01:4, P02:1, P03:3, P04:4, P05:7, P06:7, P07:5, P08:5, P09:5, P10:6, P11:5, P12:6, P13:8, notes:"Green New Deal. Net Zero pledge."},
+            2025: {P01:5, P02:2, P03:6, P04:5, P05:6, P06:7, P07:6, P08:7, P09:6, P10:7, P11:5, P12:7, P13:8, notes:"Direct PPA active. K-ETS Price dropped (~$10)."}
         },
         "Australia": {
-            2010: {P01:8, P02:7, P03:7, P04:8, P05:6, P06:1, P07:7, P08:8, P09:4, P10:8, P11:3, P12:5, P13:7, notes:"Expanded Renewable Energy Target (RET) aims for 20% renewables by 2020. RET split into Large-scale (LRET) and Small-scale (SRES). Relies on Renewable Energy Certificates (RECs).", cn_notes:"擴大的可再生能源目標（RET）旨在到2020年實現20%的可再生能源。RET分為大型（LRET）和小型（SRES）。依賴可再生能源證書（RECs）。"},
-            2015: {P01:8, P02:7, P03:7, P04:7, P05:5, P06:1, P07:7, P08:8, P09:5, P10:7, P11:3, P12:4, P13:6, notes:"Large-scale Renewable Energy Target (LRET) reduced to 33,000 GWh by 2020 after political uncertainty. Carbon tax repealed. Energy White Paper 2015 released.", cn_notes:"在政治不確定性之後，大型可再生能源目標（LRET）到2020年減少到33,000 GWh。廢除了碳稅。發布了2015年能源白皮書。"},
-            2020: {P01:9, P02:8, P03:9, P04:9, P05:4, P06:2, P07:7, P08:8, P09:6, P10:8, P11:4, P12:5, P13:6, notes:"Renewable Energy Target (RET) met in 2020, leading to record investment. Significant growth in solar. Uncertainty regarding future national policy direction post-RET.", cn_notes:"2020年實現了可再生能源目標（RET），導致創紀錄的投資。太陽能顯著增長。RET後未來國家政策方向不確定。"},
-            2025: {P01:9, P02:9, P03:9, P04:9, P05:9, P06:6, P07:6, P08:9, P09:7, P10:10, P11:6, P12:7, P13:8, notes:"Legislated targets (82% renewables by 2030, 43% emissions reduction by 2030, Net-Zero by 2050). Powering Australia Plan and Capacity Investment Scheme (CIS) drive investment. Grid and planning challenges persist.", cn_notes:"立法目標（到2030年82%可再生能源，到2030年減排43%，到2050年淨零）。“為澳洲供電”計劃和容量投資計劃（CIS）推動投資。電網和規劃挑戰仍然存在。"}
+            2010: {P01:8, P02:8, P03:6, P04:8, P05:7, P06:0, P07:6, P08:7, P09:6, P10:6, P11:4, P12:5, P13:5, notes:"RET scheme. NEM energy-only market."},
+            2015: {P01:8, P02:8, P03:7, P04:8, P05:6, P06:2, P07:7, P08:8, P09:7, P10:7, P11:4, P12:4, P13:4, notes:"Carbon tax repealed. RET uncertainty. CEFC/ARENA active."},
+            2020: {P01:9, P02:8, P03:9, P04:9, P05:5, P06:2, P07:7, P08:8, P09:8, P10:8, P11:4, P12:5, P13:5, notes:"State-level leadership. Rooftop solar boom. Connection delays."},
+            2025: {P01:9, P02:9, P03:9, P04:9, P05:6, P06:5, P07:8, P08:9, P09:9, P10:9, P11:5, P12:7, P13:9, notes:"Net Zero Law (2022). Safeguard Mechanism. State coal exits."}
         },
         "Canada": {
-            2010: {P01:4, P02:6, P03:5, P04:5, P05:5, P06:3, P07:5, P08:4, P09:4, P10:6, P11:5, P12:5, P13:6, notes:"Federally, ecoENERGY programs and Renewable Fuel Regulations. Ontario's Green Energy Act with Feed-in Tariffs (FITs) and BC's Clean Energy Act drive provincial leadership in renewables.", cn_notes:"聯邦層面有ecoENERGY計劃和可再生燃料法規。安大略省的《綠色能源法》帶有上網電價（FITs），以及卑詩省的《清潔能源法》推動了省級在可再生能源方面的領先地位。"},
-            2015: {P01:5, P02:6, P03:6, P04:6, P05:6, P06:5, P07:6, P08:5, P09:5, P10:7, P11:6, P12:6, P13:7, notes:"Federal GHG emissions reduction target (30% below 2005 levels by 2030). Provincial carbon pricing (cap-and-trade, carbon tax) gains traction. Canadian Energy Strategy promotes cooperation.", cn_notes:"聯邦溫室氣體減排目標（到2030年比2005年水平低30%）。省級碳定價（總量管制與交易，碳稅）獲得關注。加拿大能源戰略促進合作。"},
-            2020: {P01:6, P02:7, P03:7, P04:6, P05:6, P06:7, P07:7, P08:6, P09:6, P10:7, P11:6, P12:7, P13:8, notes:"A Healthy Environment and a Healthy Economy plan launched, setting net-zero by 2050 target and 2035 clean electricity grid goal. Federal carbon tax in place.", cn_notes:"啟動了“健康環境與健康經濟”計劃，設定了2050年淨零目標和2035年清潔電網目標。聯邦碳稅已實施。"},
-            "2025": {P01:7, P02:7, P03:8, P04:7, P05:6, P06:8, P07:7, P08:7, P09:7, P10:8, P11:7, P12:7, P13:8, notes:"Clean Electricity Regulations target net-zero grid by 2035. Significant investments and Clean Economy Investment Tax Credits (ITCs) drive growth. Methane emission reduction targets in place.", cn_notes:"清潔電力法規目標是到2035年實現淨零電網。重大投資和清潔經濟投資稅收抵免（ITCs）推動增長。甲烷減排目標已到位。"}
+            2010: {P01:4, P02:6, P03:5, P04:5, P05:6, P06:3, P07:5, P08:4, P09:4, P10:6, P11:5, P12:5, P13:6, notes:"Ontario Green Energy Act. BC Carbon Tax."},
+            2015: {P01:5, P02:7, P03:6, P04:6, P05:6, P06:4, P07:6, P08:5, P09:5, P10:7, P11:6, P12:6, P13:7, notes:"Coal phase-out started. Province-led."},
+            2020: {P01:6, P02:8, P03:7, P04:6, P05:6, P06:7, P07:7, P08:6, P09:6, P10:8, P11:6, P12:7, P13:8, notes:"Federal Carbon Backstop. Net Zero 2050 Act."},
+            2025: {P01:7, P02:9, P03:8, P04:7, P05:7, P06:9, P07:7, P08:7, P09:7, P10:9, P11:8, P12:7, P13:9, notes:"Federal Carbon Price >$60/t. ITC for Clean Tech."}
         },
         "Spain": {
-            2010: {P01:5, P02:7, P03:4, P04:6, P05:6, P06:5, P07:6, P08:4, P09:4, P10:6, P11:4, P12:6, P13:8, notes:"Renewable Energy Plan (PER) 2005-2010 sets ambitious targets. Feed-in tariffs (FiTs) are key support, but significant cuts to subsidies begin in 2010.", cn_notes:"可再生能源計劃（PER）2005-2010設定了宏偉目標。上網電價（FiTs）是關鍵支持，但補貼的大幅削減始於2010年。"},
-            2015: {P01:5, P02:7, P03:3, P04:6, P05:3, P06:5, P07:5, P08:4, P09:4, P10:3, P11:3, P12:4, P13:5, notes:"Significant cuts to renewable energy support and Feed-in Tariffs (FiTs). Controversial \"sun tax\" introduced, discouraging solar self-consumption. Aligned with EU 2020 targets.", cn_notes:"可再生能源支持和上網電價（FiTs）大幅削減。引入了有爭議的“太陽稅”，阻礙了太陽能自發自用。符合歐盟2020年目標。"},
-            2020: {P01:7, P02:8, P03:7, P04:7, P05:6, P06:5, P07:7, P08:6, P09:7, P10:7, P11:5, P12:7, P13:8, notes:"Successfully met EU 2020 renewable energy target. \"Sun tax\" repealed. Renewable Energy Economic Regime (REER) auction-based system introduced. Integrated National Energy and Climate Plan (PNIEC) submitted.", cn_notes:"成功實現了歐盟2020年可再生能源目標。廢除了“太陽稅”。引入了基於拍賣的可再生能源經濟體制（REER）。提交了國家能源和氣候綜合計劃（PNIEC）。"},
-            2025: {P01:7, P02:7, P03:8, P04:8, P05:7, P06:6, P07:6, P08:7, P09:8, P10:9, P11:6, P12:8, P13:9, notes:"Updated National Energy and Climate Plan (PNIEC) sets ambitious 2030 targets (81% renewable electricity). High renewable penetration, but grid curtailment is an emerging issue. Significant investment in grid development.", cn_notes:"更新的國家能源和氣候計劃（PNIEC）設定了宏偉的2030年目標（81%可再生電力）。可再生能源滲透率高，但電網限制是一個新興問題。電網發展投資巨大。"}
+            2010: {P01:5, P02:5, P03:4, P04:6, P05:8, P06:3, P07:6, P08:6, P09:5, P10:7, P11:4, P12:6, P13:7, notes:"FIT boom and bust (tariff deficit)."},
+            2015: {P01:5, P02:8, P03:3, P04:6, P05:2, P06:3, P07:5, P08:6, P09:5, P10:5, P11:3, P12:5, P13:6, notes:"Sun Tax era. Stagnation."},
+            2020: {P01:6, P02:9, P03:8, P04:7, P05:6, P06:5, P07:7, P08:7, P09:7, P10:7, P11:5, P12:8, P13:9, notes:"PNIEC (Plan). PPA leader in Europe. Auction return."},
+            2025: {P01:7, P02:10, P03:9, P04:8, P05:7, P06:10, P07:8, P08:8, P09:8, P10:8, P11:6, P12:8, P13:9, notes:"EU ETS > €60. Storage strategy. High renewable penetration."}
         }
     };
+
+    // --- Convert raw numerical presets to detailed checkbox states ---
+    const presets = {};
+    for (const country in rawPresets) {
+        presets[country] = {};
+        for (const year in rawPresets[country]) {
+            const yearData = rawPresets[country][year];
+            const convertedYearData = { notes: yearData.notes };
+            for (const pid in yearData) {
+                if (pid.startsWith('P') && policyOptionsMap[pid]) {
+                    const score = yearData[pid];
+                    convertedYearData[pid] = {
+                        score: score,
+                        checkboxes: _generateCheckboxStates(score, policyOptionsMap[pid])
+                    };
+                } else if (!pid.startsWith('P')) { // Copy other properties like 'notes'
+                    convertedYearData[pid] = yearData[pid];
+                }
+            }
+            presets[country][year] = convertedYearData;
+        }
+    }
+
 
     let currentLang = 'en';
     let policyState = {}; // Current user-adjusted scores {P01: 5, P02: 7, ...}
@@ -161,33 +531,54 @@ document.addEventListener('DOMContentLoaded', () => {
             
             cat.policies.forEach(pid => {
                 const pLabel = lang[currentLang][pid] || pid;
-                const level = policyState[pid];
-                html += `<div>
+                let level = policyState[pid]; // policyState now stores numerical score
+                if (level === undefined) {
+                    level = 0;
+                }
+                html += `<div><div class="flex justify-between items-center">
                             <label for="${pid}" class="text-gray-700">${pLabel}</label>
-                            <div class="flex items-center gap-4 mt-1">
+                            <span id="val-${pid}" class="w-8 text-right font-semibold text-indigo-600">${level}</span>
+                         </div>`;
+
+                // Check if this policy has checkbox options defined
+                const options = policyOptionsMap[pid];
+
+                if (options) {
+                    html += `<div id="${pid}-checkboxes" class="mt-2 space-y-2">`;
+                    options.forEach(opt => {
+                        const labelText = lang[currentLang][opt.label_key] || opt.label_key;
+                        // Checkbox state will be set by loadPreset or user interaction
+                        html += `
+                            <label class="flex items-center space-x-3 text-sm cursor-pointer">
+                                <input type="checkbox" data-pid="${pid}" data-weight="${opt.weight}" id="${opt.id}" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                <span>${labelText} (+${opt.weight})</span>
+                            </label>
+                        `;
+                    });
+                    html += '</div>';
+                } else {
+                    html += `<div class="flex items-center gap-4 mt-1">
                                 <span class="text-sm font-bold text-gray-500">0</span>
                                 <input type="range" id="${pid}" min="0" max="10" value="${level}" step="1" data-pid="${pid}" class="flex-grow">
                                 <span class="text-sm font-bold text-gray-500">10</span>
-                                <span id="val-${pid}" class="w-8 text-center font-semibold text-indigo-600">${level}</span>
-                            </div>
-                         </div>`;
+                             </div>`;
+                }
+                html += `</div>`;
             });
             html += `</div></div>`;
         });
         policyControls.innerHTML = html;
-        addSliderListeners();
+        addControlListeners();
     }
 
     /** Populates the country checkboxes */
     function renderCountryCheckboxes() {
-        countryCheckboxes.innerHTML = Object.keys(presets).map(country => {
-            const translatedCountry = lang[currentLang].countries[country] || country;
-            return `
+        countryCheckboxes.innerHTML = Object.keys(rawPresets).map(country => `
             <label for="chk-${country}" class="flex items-center space-x-2 text-sm cursor-pointer">
                 <input type="checkbox" id="chk-${country}" data-country="${country}" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                <span>${translatedCountry}</span>
+                <span>${lang[currentLang].countries[country] || country}</span>
             </label>
-        `}).join('');
+        `).join('');
         
         // Add event listeners
         countryCheckboxes.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
@@ -212,9 +603,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         // A new country is now primary, load its preset
                         loadPreset(newFirstCountry, year);
                     } else {
-                        // No countries are selected anymore, set header to 'User editing'
-                        presetDisplayText.textContent = 'User editing';
-                        presetDisplayHeader.classList.remove('hidden'); // Ensure it's visible
+                        // No countries are selected anymore, clear everything
+                        presetDisplayHeader.classList.add('hidden');
+                        document.querySelectorAll('[id^="preset-val-"]').forEach(el => el.textContent = '');
                         presetNotesEl.textContent = '';
                         // Reset all policy states and slider UI to 0
                         const allPids = policies.flatMap(p => p.policies);
@@ -235,17 +626,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /** Populates the year dropdown */
     function populateYearDropdown() {
-        yearSelect.innerHTML = [...new Set(Object.values(presets).flatMap(c => Object.keys(c)))].sort().map(y => `<option value="${y}">${y}</option>`).join('');
+        yearSelect.innerHTML = [...new Set(Object.values(rawPresets).flatMap(c => Object.keys(c)))].sort().map(y => `<option value="${y}">${y}</option>`).join('');
     }
 
     /** Populates the methodology weights table */
     function renderWeightsTable() {
-        weightsTable.innerHTML = policies.map(cat => `
-            <tr>
+        weightsTable.innerHTML = policies.map(cat => (
+            `<tr>
                 <td class="px-4 py-2 text-sm">${lang[currentLang][cat.id]}</td>
                 <td class="px-4 py-2 text-sm font-mono">${(categoryWeights[cat.id] * 100).toFixed(0)}%</td>
-            </tr>
-        `).join('');
+            </tr>`
+        )).join('');
     }
 
     const indicatorWeightSums = {
@@ -327,7 +718,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /** Initializes the Line Chart for country trends */
     function initTrendChart() {
         const ctx = trendChartCanvas.getContext('2d');
-        const years = [...new Set(Object.values(presets).flatMap(c => Object.keys(c)))].sort();
+        const years = [...new Set(Object.values(rawPresets).flatMap(c => Object.keys(c)))].sort();
         trendChart = new Chart(ctx, {
             type: 'line',
             data: { 
@@ -347,19 +738,27 @@ document.addEventListener('DOMContentLoaded', () => {
         trendChart.data.datasets = []; // Clear existing datasets
 
         selectedCountries.forEach((country, index) => {
-            const countryData = presets[country];
+            const countryData = presets[country]; // Use the processed presets
             if (!countryData) return;
 
             const years = trendChart.data.labels;
             const scores = years.map(year => {
                 const yearData = countryData[year];
-                return yearData ? calculateScores(yearData).overallScore : null;
+                if (!yearData) return null;
+
+                // Flatten yearData to simple score object for calculation
+                const tempState = {};
+                for (const pid in yearData) {
+                    if (pid.startsWith('P') && yearData[pid].score !== undefined) {
+                        tempState[pid] = yearData[pid].score;
+                    }
+                }
+                return calculateScores(tempState).overallScore;
             });
             
             const color = chartColors[index % chartColors.length];
-            const translatedCountry = lang[currentLang].countries[country] || country;
             trendChart.data.datasets.push({
-                label: translatedCountry,
+                label: country,
                 data: scores,
                 borderColor: color,
                 backgroundColor: color + '33', // Lighter transparent version for fill
@@ -387,57 +786,93 @@ document.addEventListener('DOMContentLoaded', () => {
         radarChart.update();
     }
 
-    function updatePresetNotes(country, year) {
-        const presetData = presets[country]?.[year];
-        const translatedCountry = lang[currentLang].countries[country] || country;
+    function updateScoreFromCheckboxes(pid) {
+        const checkboxes = document.querySelectorAll(`#${pid}-checkboxes input[type="checkbox"]`);
+        let newScore = 0;
+        checkboxes.forEach(cb => {
+            if (cb.checked) {
+                newScore += parseInt(cb.dataset.weight, 10);
+            }
+        });
 
-        if (presetData) {
-            const note = (currentLang === 'cn' && presetData.cn_notes) ? presetData.cn_notes : presetData.notes;
-            presetNotesEl.textContent = note ? `Notes: ${note}` : '';
-        } else if (country && year) {
-            presetNotesEl.textContent = `Notes: No data for ${translatedCountry} in ${year}.`;
-        } else {
-            presetNotesEl.textContent = '';
+        // Cap the score at 10
+        newScore = Math.min(newScore, 10);
+
+        policyState[pid] = newScore;
+        const valueDisplay = document.getElementById(`val-${pid}`);
+        if (valueDisplay) {
+            valueDisplay.textContent = newScore;
         }
+        
+        // This function is now responsible for triggering the main UI update
+        updateUI();
+
+        // Clear preset notes and update header text
+        presetNotesEl.textContent = '';
+        presetDisplayText.textContent = 'User editing';
+        presetDisplayHeader.classList.remove('hidden');
     }
-    
+
     /** Load a preset into the sliders and update the UI */
     function loadPreset(country, year) {
-        const presetData = presets[country]?.[year];
+        const presetData = presets[country]?.[year]; // Use the processed presets
         const translatedCountry = lang[currentLang].countries[country] || country;
         
         if (!presetData) {
             presetDisplayText.textContent = "User editing (No data)";
             presetDisplayHeader.classList.remove('hidden'); 
-            updatePresetNotes(country, year);
             return;
         }
 
         presetDisplayText.textContent = `${translatedCountry} - ${year}`;
         presetDisplayHeader.classList.remove('hidden'); 
 
-        // Update policy state
-        policyState = { ...presetData };
+        // Update policy state numerical scores
+        for (const pid in presetData) {
+            if (pid.startsWith('P')) {
+                policyState[pid] = presetData[pid].score;
+            }
+        }
 
         // Update notes
-        updatePresetNotes(country, year);
+        presetNotesEl.textContent = presetData.notes ? `${lang[currentLang].notes_prefix}${presetData.notes}` : '';
 
-        // Update sliders
+        // Update all controls
         for (const pid in policyState) {
-            const slider = document.getElementById(pid);
+            const level = policyState[pid]; // This is the numerical score
+
+            // Update the numerical display next to the policy label
             const valueDisplay = document.getElementById(`val-${pid}`);
-            if (slider) {
-                slider.value = policyState[pid];
-            }
             if (valueDisplay) {
-                valueDisplay.textContent = policyState[pid];
+                valueDisplay.textContent = level;
+            }
+
+            if (policyOptionsMap[pid]) {
+                 // Handle checkboxes: Directly set checked state from presetData
+                const checkboxStates = presetData[pid].checkboxes;
+                const options = policyOptionsMap[pid];
+                
+                options.forEach(opt => {
+                    const checkbox = document.getElementById(opt.id);
+                    if (checkbox && checkboxStates) {
+                        checkbox.checked = checkboxStates[opt.id] || false; // Set checked based on boolean state
+                    }
+                });
+
+            } else {
+                // Handle sliders for other policies (fallback)
+                const slider = document.getElementById(pid);
+                if (slider) {
+                    slider.value = level;
+                }
             }
         }
         updateUI();
     }
 
     /** Add event listeners to all sliders */
-    function addSliderListeners() {
+    function addControlListeners() {
+        // Sliders
         const sliders = policyControls.querySelectorAll('input[type="range"]');
         sliders.forEach(slider => {
             slider.addEventListener('input', (e) => {
@@ -446,7 +881,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 policyState[pid] = value;
                 document.getElementById(`val-${pid}`).textContent = value;
                 
-                // Clear preset notes. Update header text but keep it visible
                 presetNotesEl.textContent = '';
                 presetDisplayText.textContent = 'User editing';
                 presetDisplayHeader.classList.remove('hidden');
@@ -454,84 +888,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateUI();
             });
         });
-    }
 
-    function renderReferences() {
-        const references = {
-            "United States": {
-                "2010": ["insideclimatenews.org", "congress.gov", "streetwisereports.com", "energy.gov", "archives.gov", "aei.org", "eia.gov", "texaspolicy.com", "ucs.org", "efchina.org", "wikipedia.org", "smartcitiesdive.com", "ferc.gov", "texas.gov", "monitoringanalytics.com", "caiso.com"],
-                "2015": ["cleantechlaw.com", "freshlawblog.com", "archives.gov", "usda.gov", "lse.ac.uk", "senate.gov", "dailyherald.com", "advancedenergyunited.org", "wikipedia.org", "energyandpolicy.org"],
-                "2020": ["house.gov", "catf.us", "clearpath.org", "ncsl.org", "senate.gov", "energy.gov", "greenneedham.org", "williamsweese.com", "wri.org", "spglobal.com", "epa.gov", "huschblackwell.com", "thirdway.org", "whitehouse.gov"],
-                "2025": ["epa.gov", "se.com", "astutepeople.com", "ul.com", "woodmac.com", "asuene.com", "solartopps.com", "potomaclaw.com", "plantemoran.com", "giia.net"]
-            },
-            "Germany": {
-                "2010": ["wordpress.com", "dundarlaw.co.uk", "deutschland.de", "world-nuclear.org", "wikipedia.org"],
-                "2015": ["eia.gov", "wikipedia.org", "centreforpublicimpact.org", "bundeswirtschaftsministerium.de", "agora-energiewende.org", "wind-energie.de", "climate-laws.org", "cleantechnica.com", "ieomsociety.org", "auswaertiges-amt.de"],
-                "2020": ["iea.org", "cleanenergywire.org", "windows.net", "climatescorecard.org", "energytransition.org", "bundeswirtschaftsministerium.de", "synertics.io", "resource-southeast.eu", "resource-platform.eu", "bayern-innovativ.de", "dena.de", "agora-energiewende.org", "bdew.de", "semanticscholar.org", "smard.de", "wfw.com", "hsfkramer.com"],
-                "2025": ["cleanenergywire.org", "review-energy.com", "renewable-ei.org", "windows.net", "bundeswirtschaftsministerium.de", "renewablesnow.com", "aoshearman.com", "infolink-group.com", "paul.tech", "strategicenergy.eu", "energymonitor.ai"]
-            },
-            "Taiwan": {
-                "2010": ["taipeitimes.com", "wikipedia.org", "researchgate.net"],
-                "2015": ["wikipedia.org", "trec.org.tw", "researchgate.net", "taere.org.tw"],
-                "2020": ["wikipedia.org", "isdp.eu", "energeiaplus.com", "gcc.re", "moea.gov.tw", "taiwaninsight.org", "ey.gov.tw", "energypedia.info", "renewablesnow.com", "us-taiwan.org"],
-                "2025": ["moea.gov.tw", "wikipedia.org", "sermsang.com", "eosglobalexpansion.com", "spglobal.com", "roc-taiwan.org", "ecct.com.tw", "ey.gov.tw", "pvknowhow.com", "tcan2050.org.tw", "amcham.com.tw", "ey.com", "thediplomat.com"]
-            },
-            "United Kingdom": {
-                "2010": ["www.gov.uk", "wikipedia.org", "ref.org.uk", "theguardian.com", "industrialinfo.com", "parliament.uk", "renewableenergyworld.com", "service.gov.uk"],
-                "2015": ["fullfact.org", "theguardian.com", "www.gov.uk", "service.gov.uk", "wikipedia.org", "legislation.gov.uk"],
-                "2020": ["greenersolutionsgroup.co.uk", "service.gov.uk", "lowcarbonenergy.co", "wikipedia.org", "parliament.uk", "ecoe.org.uk", "www.gov.uk"],
-                "2025": ["rsmuk.com", "switcheroo.co.uk", "service.gov.uk", "cladco.co.uk", "www.gov.uk", "parliament.uk", "aab.uk"]
-            },
-            "France": {
-                "2010": ["lse.ac.uk", "euki.de", "ogel.org", "usda.gov", "wikipedia.org"],
-                "2015": ["climate-laws.org", "billionbricks.org", "gide.com", "greeneconomycoalition.org", "planete-energies.com", "cms.law", "iea.org", "caneurope.org", "greenfinanceplatform.org", "theguardian.com"],
-                "2020": ["wikipedia.org", "carbon-intel.com", "iddri.org", "dodspoliticalintelligence.com", "euractiv.com", "planete-energies.com", "ecologie.gouv.fr", "openenergytracker.org", "ratedpower.com", "renewablesnow.com", "cleanenergywire.org"],
-                "2025": ["theelectricityhub.com", "surgepv.com", "rinnovabili.net", "europa.eu", "pv-magazine.com", "strategicenergy.eu", "pvknowhow.com", "energynews.pro", "argusmedia.com"]
-            },
-            "Japan": {
-                "2010": ["iea.org", "carbon-intel.com", "re-policy.jp", "eco-business.com", "diva-portal.org", "jefma.or.jp", "japanfs.org"],
-                "2015": ["researchgate.net", "ichigo-green.co.jp", "enerdata.net", "pv-magazine.com", "renewable-ei.org", "ieabioenergy.com", "wikipedia.org", "diva-portal.org", "japanfs.org"],
-                "2020": ["energytracker.asia", "climate-transparency.org", "iea.org", "isep.or.jp", "japan.go.jp", "env.go.jp", "japan-clp.jp"],
-                "2025": ["energytracker.asia", "edelmanglobaladvisory.com", "ashurst.com", "reglobal.org", "apnews.com", "eia.gov", "titanconsulting.jp", "pvknowhow.com"]
-            },
-            "South Korea": {
-                "2010": ["berkeley.edu", "scispace.com", "seoulsolution.kr", "pew.org", "eco-business.com", "wikipedia.org"],
-                "2015": ["industrialinfo.com", "mlex.com", "iaea.org", "climateactiontracker.org", "wikipedia.org", "windows.net", "renewable-ei.org", "fes.de", "ije-pyc.org", "scribd.com", "nautilus.org"],
-                "2020": ["cms.law", "thecuriouseconomist.com", "oecd.org", "iea.org", "boell.org", "agora-energiewende.org", "wikipedia.org", "renewable-ei.org"],
-                "2025": ["ieefa.org", "investkorea.org", "spglobal.com", "trade.gov", "esteri.it", "windows.net", "edcdn.com", "solarquarter.com", "ember-energy.org"]
-            },
-            "Australia": {
-                "2010": ["energycouncil.com.au", "wikipedia.org", "pmc.gov.au", "cer.gov.au", "mondaq.com", "bsl.org.au"],
-                "2015": ["cer.gov.au", "cleanenergycouncil.org.au", "apo.org.au", "cliffordchance.com", "wwf.org.au"],
-                "2020": ["cer.gov.au", "rba.gov.au", "transparency.gov.au", "industry.gov.au"],
-                "2025": ["solaremporium.com.au", "cyanergy.com.au", "pv-magazine-australia.com", "claytonutz.com", "dcceew.gov.au", "theguardian.com", "cleanenergycouncil.org.au"]
-            },
-            "Spain": {
-                "2010": ["iea.org", "aip.org", "iisd.org", "unctad.org", "ratedpower.com", "theguardian.com", "manchester.ac.uk", "elpais.com"],
-                "2015": ["ratedpower.com", "windows.net", "afi.es", "wikipedia.org", "renovablesverdes.com", "iea.org"],
-                "2020": ["windows.net", "researchgate.net", "lamoncloa.gob.es", "wikipedia.org", "climatescorecard.org", "climate-laws.org", "reglobal.org"],
-                "25": ["iea.org", "wikipedia.org", "climate-laws.org", "leadersleague.com", "pvknowhow.com", "strategicenergy.eu", "polaroo.com", "weforum.org", "enerdata.net", "business-sweden.com", "manglai.io"]
-            }
-        };
-
-        const referencesContent = document.getElementById('references-content');
-        let html = '';
-
-        for (const country in references) {
-            html += `<h4 class="font-bold mt-4">${country}</h4>`;
-            const years = references[country];
-            for (const year in years) {
-                html += `<h5 class="font-semibold mt-2">${year}</h5>`;
-                html += '<ul class="list-disc list-inside">';
-                const sources = years[year];
-                sources.forEach(ref => {
-                    html += `<li>${ref}</li>`;
-                });
-                html += '</ul>';
-            }
-        }
-
-        referencesContent.innerHTML = html;
+        // Checkboxes (Generic listener for any policy with checkboxes)
+        Object.keys(policyOptionsMap).forEach(pid => {
+             const checkboxes = document.querySelectorAll(`#${pid}-checkboxes input[type="checkbox"]`);
+             checkboxes.forEach(checkbox => {
+                 checkbox.addEventListener('change', () => updateScoreFromCheckboxes(pid));
+             });
+        });
     }
 
     function switchLanguage() {
@@ -552,7 +916,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderPolicies();
         renderCountryCheckboxes(); // Re-render for new lang
         renderWeightsTable();
-        renderReferences();
 
         // Update chart labels
         radarChart.data.labels = [lang[currentLang].I_Market, lang[currentLang].I_Mechanism, lang[currentLang].I_Infra];
@@ -563,30 +926,32 @@ document.addEventListener('DOMContentLoaded', () => {
             if(chk) chk.checked = true;
         });
 
-        const countryToLoad = selectedCountries[0];
-        const year = yearSelect.value;
-        if (countryToLoad && !presetDisplayText.textContent.includes('User editing')) {
-            const translatedCountry = lang[currentLang].countries[countryToLoad] || countryToLoad;
-            presetDisplayText.textContent = `${translatedCountry} - ${year}`;
-            updatePresetNotes(countryToLoad, year);
+        // Re-apply the current policy state to the newly rendered checkboxes
+        if (selectedCountries.length > 0) {
+            loadPreset(selectedCountries[0], yearSelect.value);
+        } else {
+            // If no country is selected, ensure UI is updated to current policyState (which might be all 0s)
+            updateUI();
         }
-
-        updateTrendChart();
-        updateUI();
     }
 
     /** Main initialization function */
     function init() {
         langSwitcher.addEventListener('click', switchLanguage);
         
+        // policyState will now hold the numerical scores derived from checkboxes
+        const allPids = policies.flatMap(p => p.policies);
+        allPids.forEach(pid => {
+            policyState[pid] = 0; // Initialize all policy scores to 0
+        });
+
         // Setup preset controls
         renderCountryCheckboxes();
         populateYearDropdown();
         
-        // Setup listener for year dropdown to load presets for sliders
+        // Setup listener for year dropdown to load presets
         yearSelect.addEventListener('change', (e) => {
             const year = e.target.value;
-            // Load preset for the first selected country into the sliders
             const countryToLoad = selectedCountries[0]; 
             if (countryToLoad) {
                 loadPreset(countryToLoad, year);
@@ -595,9 +960,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         initRadarChart();
         initTrendChart();
-        renderPolicies(); // To draw initial sliders
+        renderPolicies(); 
         renderWeightsTable();
-        renderReferences();
         
         // Load initial state
         selectedCountries = ["United States"];
